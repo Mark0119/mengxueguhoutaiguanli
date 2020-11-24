@@ -19,6 +19,17 @@ export default new Vuex.Store({
   },
   // 数据更改
   mutations: {
+    // 分页器数据
+    Current(state,val){
+     state.current=val
+    },
+    Size(state,val){
+     state.size=val
+    },
+
+
+
+
     // 静态
     // 数据接口
     lISToBJ(state,val){

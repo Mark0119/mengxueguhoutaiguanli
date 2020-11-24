@@ -62,7 +62,7 @@
     </el-table>
 
 
-
+    <paging></paging>
   </div>
 </template>
 
@@ -70,6 +70,9 @@
 
 
 import {DelGoods,GetGoods} from "@/api/goods";
+
+// 组件
+import paging from "@/views/Modelu/paging";
 
 export default {
   data() {
@@ -80,6 +83,7 @@ export default {
   },
   components: {
     // 组件注册
+    paging,
   },
   beforeCreate() {
     // 在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用。
