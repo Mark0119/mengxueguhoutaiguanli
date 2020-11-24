@@ -16,13 +16,12 @@ export function GetStaff(current,size){
 //     })
 // }
 // // 删除数据
-// export function DelStaff(data){
-//     return request({
-//         url:'/staff/list/search/1/20',
-//         method:'post',
-//         data
-//     })
-// }
+export function DelStaff(id){
+    return request({
+        url:`/staff/${id}`,
+        method:'DELETE',
+    })
+}
 // // 新增数据
 // export function AddStaff(data){
 //     return request({

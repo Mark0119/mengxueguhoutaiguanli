@@ -15,15 +15,14 @@ export function GetGoods(current,size){
 //         data
 //     })
 // }
-// // 删除数据
-// export function DelGoods(data){
-//     return request({
-//         url:'/goods/list/search/1/20',
-//         method:'post',
-//         data
-//     })
-// }
-// // 新增数据
+// 删除数据
+export function DelGoods(id){
+    return request({
+        url:`/goods/${id}`,
+        method:'DELETE',
+    })
+}
+// 新增数据
 // export function AddGoods(data){
 //     return request({
 //         url:'/goods/list/search/1/20',
@@ -31,11 +30,11 @@ export function GetGoods(current,size){
 //         data
 //     })
 // }
-// // 编辑数据
+// 编辑数据
 // export function RedactGoods(data){
 //     return request({
 //         url:'/goods/list/search/1/20',
-//         method:'post',
+//         method:'put',
 //         data
 //     })
 // }

@@ -55,6 +55,7 @@
           <el-button
               size="mini"
               type="danger"
+              @click="del(scope.row.id)"
           >删除</el-button>
         </template>
       </el-table-column>
@@ -68,8 +69,7 @@
 <script>
 
 
-
-import {GetGoods} from "@/api/goods";
+import {DelGoods,GetGoods} from "@/api/goods";
 
 export default {
   data() {
@@ -126,6 +126,11 @@ export default {
   },
   methods: {
     // 方法定义
+    del(val){
+      this.$store.commit('DELID',val)//传递删除索引ID
+      this.$store.commit('DELoBJ',DelGoods)//传递删除接口
+      this.$store.commit('DELGOODS_Action')//调用删除方法
+    }
   }
 };
 </script>

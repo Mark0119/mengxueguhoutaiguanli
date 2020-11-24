@@ -51,6 +51,7 @@
           <el-button
               size="mini"
               type="danger"
+              @click="del(scope.row.id)"
           >删除</el-button>
         </template>
       </el-table-column>
@@ -62,7 +63,7 @@
 <script>
 
 
-import {GetStaff} from "@/api/staff";
+import {DelStaff, GetStaff} from "@/api/staff";
 
 export default {
   data() {
@@ -118,6 +119,11 @@ export default {
   },
   methods: {
     // 方法定义
+    del(val){
+      this.$store.commit('DELID',val)//传递删除索引ID
+      this.$store.commit('DELoBJ',DelStaff)//传递删除接口
+      this.$store.commit('DELGOODS_Action')//调用删除方法
+    }
   }
 };
 </script>

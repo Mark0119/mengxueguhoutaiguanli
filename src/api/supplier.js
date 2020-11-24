@@ -16,13 +16,12 @@ export function GetSupplier(current,size){
 //     })
 // }
 // // 删除数据
-// export function DelSupplier(data){
-//     return request({
-//         url:'/member/list/search/1/20',
-//         method:'post',
-//         data
-//     })
-// }
+export function DelSupplier(id){
+    return request({
+        url:`/supplier/${id}`,
+        method:'DELETE',
+    })
+}
 // // 新增数据
 // export function AddSupplier(data){
 //     return request({

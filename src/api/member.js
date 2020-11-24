@@ -16,13 +16,12 @@ export function GetMember(current,size){
 //     })
 // }
 // // 删除数据
-// export function DelMember(data){
-//     return request({
-//         url:'/member/list/search/1/20',
-//         method:'post',
-//         data
-//     })
-// }
+export function DelMember(id){
+    return request({
+        url:`/member/${id}`,
+        method:'DELETE',
+    })
+}
 // // 新增数据
 // export function AddMember(data){
 //     return request({
