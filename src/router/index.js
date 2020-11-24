@@ -1,14 +1,46 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import login from "@/views/login";
+import index from "@/views/Home";
+import member from "@/views/member";
+import staff from "@/views/staff";
+import supplier from "@/views/supplier";
+import goods from "@/views/goods";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home
+    name: "login",
+    component: login
+  },
+  {
+    path: "/index",
+    name: "index",
+    component: index,
+    children:[
+      {
+        path: "/member",
+        name: "member",
+        component: member
+      },
+      {
+        path: "/staff",
+        name: "staff",
+        component: staff
+      },
+      {
+        path: "/supplier",
+        name: "supplier",
+        component: supplier
+      },
+      {
+        path: "/goods",
+        name: "goods",
+        component: goods
+      },
+    ]
   },
 ];
 
