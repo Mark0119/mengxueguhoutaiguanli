@@ -1,17 +1,65 @@
 <template>
   <div>
     <!--    <template></template>  -->
-    供应商
+
+    <el-table
+        :data="list"
+        border
+        v-loading="loading"
+        style="width: 100%">
+      <el-table-column
+          label="序号"
+          type="index"
+          width="80">
+      </el-table-column>
+      <el-table-column
+          label="供应商名称"
+          prop="name"
+          width="380">
+      </el-table-column>
+      <el-table-column
+          label="联系人"
+          prop="linkman"
+          width="160">
+      </el-table-column>
+      <el-table-column
+          label="联系电话"
+          prop="mobile"
+          width="380">
+      </el-table-column>
+      <el-table-column
+          label="备注"
+          prop="remark"
+          width="380">
+      </el-table-column>
+      <el-table-column label="操作">
+        <template slot-scope="scope">
+          <el-button
+              size="mini"
+          >编辑</el-button>
+          <el-button
+              size="mini"
+              type="danger"
+          >删除</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+
   </div>
 </template>
 
 <script>
 
 
+
+
+import {GetSupplier} from "@/api/supplier";
+
 export default {
   data() {
     return {
       // 数据
+      loading:true
     };
   },
   components: {
@@ -28,6 +76,14 @@ export default {
   },
   mounted() {
     // el 被新创建的 vm. 替换，并挂载到实例上去之后调用该钩子。
+    // 清空数据
+    this.$store.commit('NEwgETlIST')
+    // 传递接口
+    this.$store.commit('lISToBJ',GetSupplier)
+    // 调用接口
+    this.$store.commit('lISToBJ_Action')
+    this.loading=false
+
   },
   beforeUpdate() {
     // 数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。 你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。
@@ -44,6 +100,10 @@ export default {
   },
   computed: {
     // 计算属性
+    // 调用数据
+    list(){
+      return this.$store.state.newGetList
+    }
   },
   watch: {
     // 数据监听

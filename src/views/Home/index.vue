@@ -3,20 +3,15 @@
     <!--    <template></template>  -->
     <el-container>
       <el-header>Header</el-header>
+
+
       <el-container>
-
-
-
         <el-aside>
-<!--          组件封装-->
+        <!--          组件封装-->
           <Aside></Aside>
         </el-aside>
-
-
-
+        <!--          组件封装-->
         <el-main>
-
-
           <router-view />
         </el-main>
       </el-container>
